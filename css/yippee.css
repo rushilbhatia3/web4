@@ -1,0 +1,96 @@
+body, html {
+    margin:0;
+    padding:0;
+    overflow: hidden;
+
+    font-family: sans-serif;
+
+    color: white;
+
+    background-color: darkseagreen;
+}
+
+#loginEnv {
+
+    display: none;
+    position: absolute;
+
+    width: 100vw;
+    height: 100vh;
+
+    justify-items: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.5);
+}
+
+#login {
+
+    padding:20px;
+    background-color: #009688;
+    border-radius: 15px;
+
+    box-shadow: 0 0 15px 3px cadetblue;
+}
+
+#login #loginTitle {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#login #loginTitle h1 {
+    margin: 0;
+}
+
+#login form {
+    display: grid;
+    justify-items: center;
+}
+
+#login form input {
+    width: 75%;
+    height: 75%;
+    margin: 10px;
+
+    font-size: 1.25rem;
+
+    border-radius: 15px;
+}
+
+#login form label {
+    width: 75%;
+    margin-top: 20px;
+    font-size: 1.5rem;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 10px;
+}
+
+nav .logo img{
+    width: 20vh;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+nav ul li {
+    display: flex;
+    align-items: center;
+
+    padding-left: 15px;
+
+    cursor: pointer;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
