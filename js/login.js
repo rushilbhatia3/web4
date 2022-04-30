@@ -51,8 +51,8 @@ function logOut(){
 }
 
 function completeLogin() {
-    let username = $("username");
-    let password = $("password");
+    let username = $("username").val();
+    let password = $("password").val();
 
     console.log("username: " + username +"\npassowrd: " + password);
 }
@@ -65,6 +65,7 @@ function loader() {
     
     $("#loginIcon").click(logIn);
     $("#loginEnv").click(logOut);
+    $("#loginSubmit").click(completeLogin);
 }
 
 window.onload = loader;
