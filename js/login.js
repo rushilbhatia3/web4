@@ -140,8 +140,6 @@ function logOut() {
 }
 
 function buttons() {
-
-    if (logged) {
         $("#mail").click(pageNotExist);
         $("#fotoFan")
         $("#drive").click(pageNotExist);
@@ -151,17 +149,14 @@ function buttons() {
         $("#finance").click(pageNotExist);
         $("#browser").click(pageNotExist);
         $(".searchBtn").click(pageNotExist);
-    } else {
-        logIn();
-    }
-    
-
-    
-
 }
 
 function pageNotExist() {
-    window.location.href = "./404.html";
+    if (logged) {
+        window.location.href = "./404.html";
+    } else {
+        logIn();
+    }
 }
 
 function loader() {
