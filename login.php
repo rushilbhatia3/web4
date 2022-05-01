@@ -1,5 +1,5 @@
 <?php
-    $password= $_POST["psw"]
+    $password= $_POST["psw"];
     $conn = new mysqli("localhost","rbhatia", $password, "rbhatia");
     if($conn->connect_error){
         echo"<p>failed to conect</p>";
