@@ -27,8 +27,7 @@ function delCookie (name) {
     document.cookie = name;
 }
 
-function loader() {
-
+function user() {
     $('svg').remove();
     var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     $("#loginIcon").append( svg );
@@ -49,6 +48,99 @@ function loader() {
     $(path).attr({d:"M 16 42.5 q 9 -22.5 18 0", stroke:"white", strokeWidth:1, fill:"lightgray"});
 
     $("#iconText").text("logout   " + getCookie("username"));
+}
+
+function loadCarousel(){
+    $('#myCarousel').carousel({
+        interval: 10000
+      })
+          
+    $('.carousel .carousel-item').each(function(){
+        var minPerSlide = 3;
+        var next = $(this).next();
+        if (!next.length) {
+          next = $(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
+              
+        for (var i=0;i<minPerSlide;i++) {
+          next=next.next();
+          if (!next.length) {
+            next = $(this).siblings(':first');
+          }
+                  
+          next.children(':first-child').clone().appendTo($(this));
+        }
+    });     
+      
+    $(".carousel-item:first").addClass("active");
+}
+
+function mainImage() {
+    var url = $(".img-fluid:first").attr('src');
+    var name = $(".img-fluid:first").attr('alt');
+    var country = $(".img-fluid:first").attr('country');
+    var state = $(".img-fluid:first").attr('state');
+    var description = $(".img-fluid:first").attr('description');
+
+    $("#image").attr({src:url, alt:name});
+    $("#name").html(name);
+    $("#country").html(country);
+    $("#state").html(state);
+    $("#description").html(description);
+}
+
+function logOut() {
+    $('svg').remove();
+    var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    $("#loginIcon").append( svg );
+    $('svg').attr({height:50, width: 50});
+
+    var circle1 = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    var circle2 = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+
+    $('svg').append(circle1);
+    $('svg').append(circle2);
+    $('svg').append(path);
+
+    $(circle1).attr({cx:25, cy:25, r:20, stroke:"white", strokeWidth:1, fill:"gray"});
+    $(circle2).attr({cx:25, cy:20, r:7.5, stroke:"white", strokeWidth:1, fill:"lightgray"});
+    $(path).attr({d:"M 16 42.5 q 9 -22.5 18 0", stroke:"white", strokeWidth:1, fill:"lightgray"});
+
+    $("#iconText").text("login");
+
+    delCookie("username");
+    delCookie("color");
+
+    window.location.href = "./yippee.html";
+}
+
+function loader() {
+
+    user();
+
+    loadCarousel();
+
+    mainImage();
+
+    $("#loginIcon").click(logOut);
+
+    $(".col-lg-2").click(function() {
+        var url = $(this).children('img').attr('src');
+        var name = $(this).children('img').attr('alt');
+        var country = $(this).attr('country');
+        var state = $(this).attr('state');
+        var description = $(this).attr('description');
+
+
+        $("#image").attr({src:url, alt:name});
+        $("#name").html(name);
+        $("#country").html(country);
+        $("#state").html(state);
+        $("#description").html(description);
+    });
+    
 }
 
 window.onload = loader;

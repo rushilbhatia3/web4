@@ -43,3 +43,20 @@ a {
     color: white;
     text-decoration: none;
 }
+
+#bigImage {
+    display: flex;
+    justify-content: center;
+}
+
+#imageHolder {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 50vw;
+}
+
+#image {
+    height: 50vh;
+}

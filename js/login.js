@@ -140,6 +140,7 @@ function logOut() {
     $("#iconText").text("login");
 
     delCookie("username");
+    console.log("suppose to be deleted: " + getCookie("username"));
     delCookie("color");
 
 }
@@ -165,6 +166,8 @@ function pageNotExist() {
 }
 
 function loader() {
+
+    console.log(getCookie("username"));
 
     if (getCookie("username") == "") {
         logged = false;

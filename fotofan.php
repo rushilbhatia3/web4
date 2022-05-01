@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yippee! - FotoFan</title>
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/fotofan.css">
+    <link rel="stylesheet" href="css/carousel.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/fotofan.js"></script>
 </head>
 <body>
@@ -37,6 +36,16 @@
         </div>
     </nav>
 
+    <div id="bigImage">
+        <div id="imageHolder">
+            <img id="image" src="" alt="">
+            <h1 id="name"></h1>
+            <h3 id="country"></h3>
+            <h4 id="state"></h4>
+            <p id="description"></p>
+        </div>
+    </div>
+
     <?php
         require_once 'login.php';
         $conn = new mysqli($hostname, $username, $password, $database);
@@ -53,23 +62,41 @@
                 echo "<p>Not in the database</p>";
                 die($conn->error);
             } else {
-                echo "<table><tr><th>Name</th><th>Elevation</th><th>img</th></tr>";
+                //echo "<div id='previews'>";
+                echo "<div class='container text-center my-3'>
+                        <div class='row mx-auto my-auto'>
+                            <div id='myCarousel' class='carousel slide w-100' data-ride='carousel'>
+                                <div class='carousel-inner w-100' role='listbox'>";
+
                 while ($obj = $result->fetch_object()) {
-                    echo "<tr><td>$obj->name</td><td>$obj->date</td><td><img src='$obj->url'></td></tr>";
+                    echo "<div class='carousel-item'>
+                            <div class='col-lg-2'>
+                                <img class='img-fluid' src='$obj->url' alt='$obj->name' country='$obj->country' state='$obj->state' description='$obj->description'>
+                            </div>
+                          </div>";
                 }
-                echo "</table>";
+
+                echo "</div>
+                        <a class='carousel-control-prev bg-dark w-auto' href='#myCarousel' role='button' data-slide='prev'>
+                            <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                            <span class='sr-only'>Previous</span>
+                        </a>
+                        <a class='carousel-control-next bg-dark w-auto' href='#myCarousel' role='button' data-slide='next'>
+                            <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                            <span class='sr-only'>Next</span>
+                        </a>
+                        </div>
+                        </div>
+                        </div>";
             }
         }
     ?>
-
-
-    <!-- jQuery library -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-
-    <!-- Popper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
+
+
+
