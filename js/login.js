@@ -55,6 +55,41 @@ function closeLogIn(){
 
 }
 
+function account() {
+
+    $('svg').remove();
+    var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    $("#loginIcon").append( svg );
+    $('svg').attr({height:50, width: 50});
+
+    var circle1 = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    var circle2 = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+
+    $('svg').append(circle1);
+    $('svg').append(circle2);
+    $('svg').append(path);
+
+    var color = "";
+
+    if (getCookie("color") == "") {
+        var rand = [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' ];
+        color = '#' + rand[Math.ceil(Math.random() * 15)] + rand[Math.ceil(Math.random() * 15)] + rand[Math.ceil(Math.random() * 15)] + rand[Math.ceil(Math.random() * 15)] + rand[Math.ceil(Math.random() * 15)] + rand[Math.ceil(Math.random() * 15)];
+
+        setCookie("color", color);
+
+    } else {
+        color = getCookie("color");
+    }
+
+    $(circle1).attr({cx:25, cy:25, r:20, stroke:"white", strokeWidth:1, fill:color});
+    $(circle2).attr({cx:25, cy:20, r:7.5, stroke:"white", strokeWidth:1, fill:"lightgray"});
+    $(path).attr({d:"M 16 42.5 q 9 -22.5 18 0", stroke:"white", strokeWidth:1, fill:"lightgray"});
+
+    $("#iconText").text("logout   " + getCookie("username"));
+
+}
+
 function completeLogin() {
 
     let username = $("#username").val();
@@ -65,43 +100,13 @@ function completeLogin() {
     if (username != "" && password != "" ) {
 
         if ( ( username == "Joe" && password == "joe123" ) || ( username == "Jane" && password == "jane999" ) ) {
-            logged = true;
-
-            $('svg').remove();
-            var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-            $("#loginIcon").append( svg );
-            $('svg').attr({height:50, width: 50});
-
-            var circle1 = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-            var circle2 = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-            var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-
-            $('svg').append(circle1);
-            $('svg').append(circle2);
-            $('svg').append(path);
-
-            var color = "";
-
-            if (getCookie("color") == "") {
-                var rand = [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' ];
-                color = '#' + rand[Math.ceil(Math.random() * 15)] + rand[Math.ceil(Math.random() * 15)] + rand[Math.ceil(Math.random() * 15)] + rand[Math.ceil(Math.random() * 15)] + rand[Math.ceil(Math.random() * 15)] + rand[Math.ceil(Math.random() * 15)];
-
-                setCookie("color", color);
-
-            } else {
-                color = getCookie("color");
-            }
-
-            $(circle1).attr({cx:25, cy:25, r:20, stroke:"white", strokeWidth:1, fill:color});
-            $(circle2).attr({cx:25, cy:20, r:7.5, stroke:"white", strokeWidth:1, fill:"lightgray"});
-            $(path).attr({d:"M 16 42.5 q 9 -22.5 18 0", stroke:"white", strokeWidth:1, fill:"lightgray"});
-
-            closeLogIn();
 
             setCookie("username", username);
-            
+            logged = true;
 
-            $("#iconText").text("logout   " + username);
+            account();
+
+            closeLogIn();
 
         } else {
             alert("username and password cannot be matched!");
@@ -141,7 +146,7 @@ function logOut() {
 
 function buttons() {
         $("#mail").click(pageNotExist);
-        $("#fotoFan")
+        $("#fotoFan").click(function() { if(logged){window.location.href = "./fotofan.php";}else{logIn();} } )
         $("#drive").click(pageNotExist);
         $("#GPS").click(pageNotExist);
         $("#games").click(pageNotExist);
@@ -160,6 +165,13 @@ function pageNotExist() {
 }
 
 function loader() {
+
+    if (getCookie("username") == "") {
+        logged = false;
+    } else {
+        account();
+        logged = true;
+    }
 
     $("#login").click(function(){
         elementClicked = true;
