@@ -24,7 +24,7 @@ function getCookie (name) {
 }
 
 function delCookie (name) {
-    document.cookie = name;
+    document.cookie = name + "=;";
 }
 
 function user() {
