@@ -17,115 +17,106 @@
 <body>
 
     <!--Login Popup Section-->
-    <div id="loginEnv">
-        <div id="login">
-            <div id="loginTitle">
-                <h1>Login</h1>
-            </div>
-            <div>
-                <p>Please enter your username and password to login to your account.</p>
-            </div>
-            <div id="loginInfo">
-                <label for="username">Username:</label>
-                <input type="text" name="username" id="username" required>
-                <label for="password">Password:</label>
-                <input type="password" name="password" id="password" required>
-                <input type="submit" value="Enter" id="loginSubmit">
-            </div>
-        </div>
+    <div class="form-popup" id="myForm">
+        <form action="login.php" class="form-container" method="post">
+
+            Login<br><br>
+
+            <label for="email">Email</label>
+            <input type="text" placeholder="Enter Email" name="email" required>
+
+            <label for="psw">Password</label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <button type="submit" class="btn">Login</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
     </div>
 
-    <!--Navbar Section-->
-
-
-
-
-
-
-    <nav class="top-nav">
-        <div class="menu-wrapper">
-            <ul class="menu">
-                <li>
-                    <a href="404.html"><img src="img/yippeeMail.png" alt="Mail App Logo">Mail</a>
-                </li>
-                <li>
-                    <a href=""><img src="img/yippeeFotoFan.png" alt="FotoFan App Logo">FotoFan</a>
-                </li>
-                <li>
-                    <a href="404.html"> <img src="img/yippeeDrive.png" alt="Drive App Logo">Drive</a>
-                </li>
-                <li>
-                    <a href="404.html"><img src="img/yippeeGPS.png" alt="GPS App Logo">GPS</a>
-                </li>
-                <li>
-                    <a href="404.html"><img src="img/yippeeGames.png" alt="Games App Logo">Game</a>
-                </li>
-                <li>
-                    <a href="404.html"><img src="img/yippeeFood.png" alt="Food App Logo">Food</a>
-                </li>
-                <li>
-                    <a href="404.html"><img src="img/yippeeFinance.png" alt="Finance App Logo">Finance</a>
-                </li>
-                <li>
-                    <a href="404.html"><img src="img/yippeeSearch.png" alt="Browser App Logo">Browser</a>
-                </li>
-            </ul>
-            <button class="menu-close" label="close menu">✕</button>
-        </div>
-        <div class="fixed-menu">
-            <div class="logo">
-                <a href=""><img src="img/logo.png" alt="Yippee Logo"></a>
-            </div>
-            <button class="menu-open" aria-label="open menu">☰</button>
-            <ul class="socials">
-                <li>
-                    <a href="">facebook</a>
-                </li>
-                <li>
-                    <a href="">twitter</a>
-                </li>
-                <li>
-                    <a href="">instagram</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
 
     <!--Main Section-->
 
 
     <main>
 
-
+        <nav class="top-nav">
+            <div class="menu-wrapper">
+                <ul class="menu">
+                    <li>
+                        <a href="404.html"><img src="img/yippeeMail.png" alt="Mail App Logo">Mail</a>
+                    </li>
+                    <li>
+                        <a href=""><img src="img/yippeeFotoFan.png" alt="FotoFan App Logo">FotoFan</a>
+                    </li>
+                    <li>
+                        <a href="404.html"> <img src="img/yippeeDrive.png" alt="Drive App Logo">Drive</a>
+                    </li>
+                    <li>
+                        <a href="404.html"><img src="img/yippeeGPS.png" alt="GPS App Logo">GPS</a>
+                    </li>
+                    <li>
+                        <a href="404.html"><img src="img/yippeeGames.png" alt="Games App Logo">Game</a>
+                    </li>
+                    <li>
+                        <a href="404.html"><img src="img/yippeeFood.png" alt="Food App Logo">Food</a>
+                    </li>
+                    <li>
+                        <a href="404.html"><img src="img/yippeeFinance.png" alt="Finance App Logo">Finance</a>
+                    </li>
+                    <li>
+                        <a href="404.html"><img src="img/yippeeSearch.png" alt="Browser App Logo">Browser</a>
+                    </li>
+                </ul>
+                <button class="menu-close" label="close menu">✕</button>
+            </div>
+            <div class="fixed-menu">
+                <div class="logo">
+                    <a href=""><img src="img/logo.png" alt="Yippee Logo"></a>
+                </div>
+                <button class="menu-open" aria-label="open menu">☰</button>
+                <ul class="socials">
+                    <li>
+                        <a href="">have</a>
+                    </li>
+                    <li>
+                        <a href="">a</a>
+                    </li>
+                    <li>
+                        <a href="">Yippee!</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
         <div id="center">
 
             <div id="bigLogo">
                 <img src="img/logo.png" alt="Yippee Large Logo">
             </div>
+
+
             <div id="searchPlace">
+
                 <input type="text" name="search" id="search" placeholder="Search here">
+
                 <div id="searchBtn">
                     <input type="button" value="Search" class="searchBtn">
                     <input type="button" value="Look up Definition" class="searchBtn">
                 </div>
+
             </div>
+
         </div>
 
 
 
         <div id="right">
             <ul>
-                <li><a href="">Home</a></li>
+                <li><a href=""> Home </a></li>
                 <li id="loginIcon">
-                    <div id="iconText">
+                    <div id="signin">
                         Login
                     </div>
-                    <svg width="40" height="50">
-                        <circle cx="25" cy="25" r="18" stroke="white" stroke-width="1" fill="gray" />
-                        <circle cx="25" cy="20" r="6.5" stroke="white" stroke-width="1" fill="lightgray" />
-                        <path d="M 16 42.5 q 9 -22.5 8 0" stroke="white" stroke-width="1" fill="lightgray" />
-                    </svg>
                 </li>
             </ul>
         </div>
@@ -150,6 +141,21 @@
         }
 
         toggleMenu();
+
+
+        document.getElementById('signin').addEventListener('click', function(event) {
+            openForm();
+
+
+        });
+
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
 
     </script>
 </body>
