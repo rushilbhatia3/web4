@@ -2,7 +2,7 @@ body,
 html {
     margin: 0;
     padding: 0;
-     !overflow: hidden;
+    overflow: hidden;
     max-height: none;
 
     font-family: sans-serif;
@@ -72,7 +72,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-     !position: fixed;
+    position: fixed;
     padding: 25px;
 }
 
