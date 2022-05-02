@@ -102,8 +102,6 @@
                       </form>";
 
                 $search = $_POST["search"];
-
-                $search = strtolower($search);
       
                 $found = false;
                 
@@ -113,7 +111,7 @@
                     if ($search == "") {
                         echo "<div class='photos'><img src=' ", $photo["url"], " ' alt='", $photo["name"], "' country='", $photo["country"], "' state='", $photo["state"], "' description='", $photo["description"], "' date='", $photo["date"], "' ></div> ";
                         $found = true;
-                    } else if( strpos(strtolower($photo["name"]),($search)) !== false || strtolower(strpos($photo["date"]),($search)) !== false || strpos(strtolower($photo["country"]),($search)) !== false || strpos(strtolower($photo["state"]),($search)) !== false ) {
+                    } else if( strpos($photo["name"],$search) !== false || strpos($photo["date"],$search) !== false || strpos($photo["country"],$search) !== false || strpos($photo["state"],$search) !== false ) {
                         echo "<div class='photos'><img src=' ", $photo["url"], " ' alt='", $photo["name"], "' country='", $photo["country"], "' state='", $photo["state"], "' description='", $photo["description"], "' date='", $photo["date"], "' ></div> ";
                         $found = true;
                     } else {
