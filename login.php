@@ -14,7 +14,7 @@
             die($conn->error);
         }
         else{
-            header('Location: yippee.html');
+            header('Location: http://cs.wheatoncollege.edu/~rbhatia/web/wRB4/fotofan.php');
 exit;
 
     }
