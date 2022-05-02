@@ -1,13 +1,15 @@
-body, html {
-    margin:0;
-    padding:0;
-    overflow: hidden;
+body,
+html {
+    margin: 0;
+    padding: 0;
+     !overflow: hidden;
+    max-height: none;
 
     font-family: sans-serif;
 
     color: white;
 
-    background-color: darkseagreen;
+    background-color: #2e4d2e;
 }
 
 #loginEnv {
@@ -20,12 +22,14 @@ body, html {
 
     justify-items: center;
     align-items: center;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
 }
+
+
 
 #login {
 
-    padding:20px;
+    padding: 20px;
     background-color: #009688;
     border-radius: 15px;
 
@@ -55,7 +59,7 @@ body, html {
 
     border-radius: 15px;
 
-    border:none;
+    border: none;
 }
 
 #login #loginInfo label {
@@ -68,12 +72,12 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    padding: 10px;
+     !position: fixed;
+    padding: 25px;
 }
 
-nav .logo img{
-    width: 20vh;
+nav .logo img {
+    width: 16vh;
 }
 
 nav ul {
@@ -81,13 +85,14 @@ nav ul {
     display: flex;
     align-items: center;
     margin: 0;
+    padding: 10px;
 }
 
 nav ul li {
     display: flex;
     align-items: center;
 
-    padding-left: 15px;
+    padding-left: 45px;
 
     cursor: pointer;
 }
@@ -103,29 +108,48 @@ main {
 }
 
 main #bigLogo {
+
     text-align: center;
-    margin: 20px;
+    margin: auto
+}
+
+.logo img:hover {
+    animation: spin 2s infinite cubic-bezier(.85, .01, .25, 1);
+
 }
 
 main #bigLogo img {
-    width: 75%;
+    width: 45%;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotateX(-20deg) rotateY(20deg);
+    }
+
+    100% {
+        transform: rotateX(-20deg) rotateY(740deg);
+    }
 }
 
 main #searchPlace {
     width: 75%;
+    padding: 10px 5px;
+    align-content: center;
+
 }
 
 main #searchPlace #search {
-    width: 100%;
+    width: 75%;
     height: 50%;
     border-radius: 15px;
+    justify-content: center;
     border: none;
-    margin-top: 20px;
-    margin-bottom: 20px;
-
     font-size: 1.25em;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 10px;
+    margin: 20px auto;
+    display: flex;
+    ;
 }
 
 main #searchPlace #searchBtn {
@@ -160,31 +184,25 @@ main #appIcons {
     padding: 10px;
     margin: 20px;
     margin-top: 50px;
-} 
+}
 
 main #appIcons div {
-    width:60px;
+    width: 60px;
     height: 60px;
-
     display: flex;
     align-items: center;
-
     padding: 5%;
-
-    border:1px dotted white;
+    border: 1px dotted white;
     border-radius: 10px;
-
     margin: 5px;
-
     background-color: #f0f8ffab;
-
-    cursor:pointer;
-} 
+    cursor: pointer;
+}
 
 main #appIcons div:hover {
     background-color: aliceblue;
 }
 
 main #appIcons img {
-    width: 60px;
-} 
+    width: 40px;
+}
