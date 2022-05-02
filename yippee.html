@@ -36,67 +36,122 @@
     </div>
 
     <!--Navbar Section-->
-    <nav>
-        <div class="logo">
-            <a href=""><img src="img/logo.png" alt="Yippee Logo"></a>
+
+
+
+
+
+
+    <nav class="top-nav">
+        <div class="menu-wrapper">
+            <ul class="menu">
+                <li>
+                    <a href="404.html"><img src="img/yippeeMail.png" alt="Mail App Logo">Mail</a>
+                </li>
+                <li>
+                    <a href=""><img src="img/yippeeFotoFan.png" alt="FotoFan App Logo">FotoFan</a>
+                </li>
+                <li>
+                    <a href="404.html"> <img src="img/yippeeDrive.png" alt="Drive App Logo">Drive</a>
+                </li>
+                <li>
+                    <a href="404.html"><img src="img/yippeeGPS.png" alt="GPS App Logo">GPS</a>
+                </li>
+                <li>
+                    <a href="404.html"><img src="img/yippeeGames.png" alt="Games App Logo">Game</a>
+                </li>
+                <li>
+                    <a href="404.html"><img src="img/yippeeFood.png" alt="Food App Logo">Food</a>
+                </li>
+                <li>
+                    <a href="404.html"><img src="img/yippeeFinance.png" alt="Finance App Logo">Finance</a>
+                </li>
+                <li>
+                    <a href="404.html"><img src="img/yippeeSearch.png" alt="Browser App Logo">Browser</a>
+                </li>
+            </ul>
+            <button class="menu-close" label="close menu">✕</button>
         </div>
-        <div>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li id="loginIcon">
-                    <div id="iconText">
-                        Login
-                    </div>
-                    <svg width="50" height="50">
-                        <circle cx="25" cy="25" r="20" stroke="white" stroke-width="1" fill="gray" />
-                        <circle cx="25" cy="20" r="7.5" stroke="white" stroke-width="1" fill="lightgray" />
-                        <path d="M 16 42.5 q 9 -22.5 18 0" stroke="white" stroke-width="1" fill="lightgray" />
-                    </svg>
+        <div class="fixed-menu">
+            <div class="logo">
+                <a href=""><img src="img/logo.png" alt="Yippee Logo"></a>
+            </div>
+            <button class="menu-open" aria-label="open menu">☰</button>
+            <ul class="socials">
+                <li>
+                    <a href="">facebook</a>
+                </li>
+                <li>
+                    <a href="">twitter</a>
+                </li>
+                <li>
+                    <a href="">instagram</a>
                 </li>
             </ul>
         </div>
     </nav>
 
     <!--Main Section-->
+
+
     <main>
-        <div id="bigLogo">
-            <img src="img/logo.png" alt="Yippee Large Logo">
-        </div>
-        <div id="searchPlace">
-            <input type="text" name="search" id="search" placeholder="Search here">
-            <div id="searchBtn">
-                <input type="button" value="Search" class="searchBtn">
-                <input type="button" value="Look up Definition" class="searchBtn">
+
+
+
+        <div id="center">
+
+            <div id="bigLogo">
+                <img src="img/logo.png" alt="Yippee Large Logo">
+            </div>
+            <div id="searchPlace">
+                <input type="text" name="search" id="search" placeholder="Search here">
+                <div id="searchBtn">
+                    <input type="button" value="Search" class="searchBtn">
+                    <input type="button" value="Look up Definition" class="searchBtn">
+                </div>
             </div>
         </div>
-        <div id="appIcons">
-            <div id="mail">
-                <img src="img/yippeeMail.png" alt="Mail App Logo">
-            </div>
-            <div id="fotoFan">
-                <img src="img/yippeeFotoFan.png" alt="FotoFan App Logo">
-            </div>
-            <div id="drive">
-                <img src="img/yippeeDrive.png" alt="Drive App Logo">
-            </div>
-            <div id="GPS">
-                <img src="img/yippeeGPS.png" alt="GPS App Logo">
-            </div>
-            <div id="games">
-                <img src="img/yippeeGames.png" alt="Games App Logo">
-            </div>
-            <div id="food">
-                <img src="img/yippeeFood.png" alt="Food App Logo">
-            </div>
-            <div id="finance">
-                <img src="img/yippeeFinance.png" alt="Finance App Logo">
-            </div>
-            <div id="browser">
-                <img src="img/yippeeSearch.png" alt="Browser App Logo">
-            </div>
+
+
+
+        <div id="right">
+            <ul>
+                <li><a href="">Home</a></li>
+                <li id="loginIcon">
+                    <div id="iconText">
+                        Login
+                    </div>
+                    <svg width="40" height="50">
+                        <circle cx="25" cy="25" r="18" stroke="white" stroke-width="1" fill="gray" />
+                        <circle cx="25" cy="20" r="6.5" stroke="white" stroke-width="1" fill="lightgray" />
+                        <path d="M 16 42.5 q 9 -22.5 8 0" stroke="white" stroke-width="1" fill="lightgray" />
+                    </svg>
+                </li>
+            </ul>
         </div>
     </main>
 
+    <script>
+        const menuOpen = document.querySelector(".top-nav .menu-open");
+        const menuClose = document.querySelector(".top-nav .menu-close");
+        const menuWrapper = document.querySelector(".top-nav .menu-wrapper");
+        const topBannerOverlay = document.querySelector(".top-banner-overlay");
+
+        function toggleMenu() {
+            menuOpen.addEventListener("click", () => {
+                menuWrapper.classList.add("is-opened");
+                topBannerOverlay.classList.add("is-moved");
+            });
+
+            menuClose.addEventListener("click", () => {
+                menuWrapper.classList.remove("is-opened");
+                topBannerOverlay.classList.remove("is-moved");
+            });
+        }
+
+        toggleMenu();
+
+    </script>
 </body>
 
 </html>
