@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yippee! - FotoFan</title>
 
+    <link rel="icon" href="img/logo.png">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/fotofan.css">
     <link rel="stylesheet" href="css/carousel.css">
@@ -21,7 +23,7 @@
         </div>
         <div>
             <ul>
-                <li><a href="./yippee.html">Home</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li id="loginIcon">
                     <div id="iconText">
                         Logout
@@ -43,6 +45,7 @@
             <h3 id="country"></h3>
             <h4 id="state"></h4>
             <p id="description"></p>
+            <p id="date"></p>
         </div>
     </div>
 
@@ -68,12 +71,16 @@
                             <div id='myCarousel' class='carousel slide w-100' data-ride='carousel'>
                                 <div class='carousel-inner w-100' role='listbox'>";
 
+                $photos = array();
+
                 while ($obj = $result->fetch_object()) {
                     echo "<div class='carousel-item'>
                             <div class='col-lg-2'>
-                                <img class='img-fluid' src='$obj->url' alt='$obj->name' country='$obj->country' state='$obj->state' description='$obj->description'>
+                                <img class='img-fluid' src='$obj->url' alt='$obj->name' country='$obj->country' state='$obj->state' description='$obj->description' date='$obj->date'>
                             </div>
                           </div>";
+
+                    array_push($photos,array("name"=>$obj->name,"date"=>$obj->date,"country"=>$obj->country,"state"=>$obj->state,"description"=>$obj->description,"url"=>$obj->url));
                 }
 
                 echo "</div>
@@ -88,6 +95,39 @@
                         </div>
                         </div>
                         </div>";
+
+                echo "<form action='./fotofan.php' method='post'>
+                        <input type='text' name='search' id='search'>
+                        <input type='submit' value='Search' id='button'>
+                      </form>";
+
+                $search = $_POST["search"];
+      
+                $found = false;
+                
+                echo "<div id='album'>";
+                foreach ($photos as $photo) {
+
+                    if ($search == "") {
+                        echo "<div class='photos'><img src=' ", $photo["url"], " ' alt='", $photo["name"], "' country='", $photo["country"], "' state='", $photo["state"], "' description='", $photo["description"], "' date='", $photo["date"], "' ></div> ";
+                        $found = true;
+                    } else if( strpos($photo["name"],$search) !== false || strpos($photo["date"],$search) !== false || strpos($photo["country"],$search) !== false || strpos($photo["state"],$search) !== false ) {
+                        echo "<div class='photos'><img src=' ", $photo["url"], " ' alt='", $photo["name"], "' country='", $photo["country"], "' state='", $photo["state"], "' description='", $photo["description"], "' date='", $photo["date"], "' ></div> ";
+                        $found = true;
+                    } else {
+                    }
+                    
+                }
+
+                if (!$found) {
+                    echo "<h2>Sorry image could not found.</h2>";
+                }
+
+                echo "</div>";
+
+                $found = false;
+
+                
             }
         }
     ?>

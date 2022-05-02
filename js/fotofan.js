@@ -82,12 +82,14 @@ function mainImage() {
     var country = $(".img-fluid:first").attr('country');
     var state = $(".img-fluid:first").attr('state');
     var description = $(".img-fluid:first").attr('description');
+    var date = $(".img-fluid:first").attr('date');
 
     $("#image").attr({src:url, alt:name});
     $("#name").html(name);
     $("#country").html(country);
     $("#state").html(state);
     $("#description").html(description);
+    $("#date").html("Last updated on: " + date);
 }
 
 function logOut() {
@@ -129,9 +131,10 @@ function loader() {
     $(".col-lg-2").click(function() {
         var url = $(this).children('img').attr('src');
         var name = $(this).children('img').attr('alt');
-        var country = $(this).attr('country');
-        var state = $(this).attr('state');
-        var description = $(this).attr('description');
+        var country = $(this).children('img').attr('country');
+        var state = $(this).children('img').attr('state');
+        var description = $(this).children('img').attr('description');
+        var date = $(this).children('img').attr('date');
 
 
         $("#image").attr({src:url, alt:name});
@@ -139,6 +142,24 @@ function loader() {
         $("#country").html(country);
         $("#state").html(state);
         $("#description").html(description);
+        $("#date").html("Last updated on: " + date);
+    });
+
+    $(".photos").click(function() {
+        var url = $(this).children('img').attr('src');
+        var name = $(this).children('img').attr('alt');
+        var country = $(this).children('img').attr('country');
+        var state = $(this).children('img').attr('state');
+        var description = $(this).children('img').attr('description');
+        var date = $(this).children('img').attr('date');
+
+
+        $("#image").attr({src:url, alt:name});
+        $("#name").html(name);
+        $("#country").html(country);
+        $("#state").html(state);
+        $("#description").html(description);
+        $("#date").html("Last updated on: " + date);
     });
     
 }
