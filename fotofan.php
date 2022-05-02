@@ -2,8 +2,7 @@
 <html lang="en">
 
 <head>
-    <META HTTP-EQUIV="Refresh" CONTENT="0; URL=http://cs.wheatoncollege.edu/~rbhatia/web/wRB4/fotofan.php">
-    </META>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
